@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 # ---------------------------------#
 # Page layout
 ## Page expands to full width
-st.set_page_config(page_title='The Machine Learning App',
+st.set_page_config(page_title='DaTatra - Data Analysis Dashboard',
                    layout='wide')
 
 
@@ -67,7 +67,7 @@ def build_model(df):
 
 # ---------------------------------#
 st.write("""
-# The Machine Learning App
+# DaTatra - Data Analysis Dashboard
 
 In this implementation, the *RandomForestRegressor()* function is used in this app for build a regression model using the **Random Forest** algorithm.
 
@@ -114,23 +114,3 @@ if uploaded_file is not None:
     build_model(df)
 else:
     st.info('Awaiting for CSV file to be uploaded.')
-    if st.button('Press to use Example Dataset'):
-        # Diabetes dataset
-        # diabetes = load_diabetes()
-        # X = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
-        # Y = pd.Series(diabetes.target, name='response')
-        # df = pd.concat( [X,Y], axis=1 )
-
-        # st.markdown('The Diabetes dataset is used as the example.')
-        # st.write(df.head(5))
-
-        # Boston housing dataset
-        df = pd.read_csv('src/USA_cars_datasets.csv')
-        X = pd.DataFrame(df.data, columns=df.feature_names)
-        Y = pd.Series(df.target, name='response')
-        df = pd.concat([X, Y], axis=1)
-
-        st.markdown('The Boston housing dataset is used as the example.')
-        st.write(df.head(5))
-
-        build_model(df)

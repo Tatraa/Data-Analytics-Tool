@@ -1,5 +1,5 @@
 pandas~=2.0.2
-streamlit~=1.22.0
+streamlit~=1.28.2
 plotly_express
 matplotlib
 numpy~=1.24.3
@@ -12,4 +12,6 @@ requests~=2.31.0
 beautifulsoup4~=4.12.2
 scipy
 scikit-learn ~=1.1
+seaborn
+openai
 
