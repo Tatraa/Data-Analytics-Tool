@@ -41,7 +41,8 @@ if uploaded_file is not None:
         # Filter data based on user input
         filtered_df = df.copy()
         for col in df.columns:
-            filter_value = st.sidebar.selectbox(f"Filter {col}", "")
+            filter_options = filtered_df[col].unique()
+            filter_value = st.sidebar.selectbox(f"Filter {col}", filter_options)
             if filter_value:
                 filtered_df = filtered_df[filtered_df[col] == filter_value]
 
