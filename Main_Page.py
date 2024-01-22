@@ -4,9 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
-# ---------------------------------#
-# Page layout
-## Page expands to full width
+
+# Page expands to full width
 st.set_page_config(page_title='DaTatra - Data Analysis Dashboard',
                    layout='wide')
 
@@ -14,8 +13,8 @@ st.set_page_config(page_title='DaTatra - Data Analysis Dashboard',
 # ---------------------------------#
 # Model building
 def build_model(df):
-    X = df.iloc[:, :-1]  # Using all column except for the last column as X
-    Y = df.iloc[:, -1]  # Selecting the last column as Y
+    X = df.iloc[:, :-1]
+    Y = df.iloc[:, -1]
 
     # Data splitting
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=(100 - split_size) / 100)
@@ -109,6 +108,8 @@ st.subheader('1. Dataset')
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
+    numeric_columns = df.select_dtypes(include='number').columns
+    df = df[numeric_columns]
     st.markdown('**1.1. Glimpse of dataset**')
     st.write(df)
     build_model(df)
